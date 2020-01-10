@@ -41,7 +41,15 @@
                 echo " <input class='form-check-inline' type='checkbox' name='flavor[]' value='$key'->$value</input>" . "<br>";
             }
 //            $getFlavor=$_POST["flavor"];
-//            if(isset($getFlavor)){
+//            echo "<ul>";
+//            foreach ($getFlavors as $item)
+//            {
+//                echo "<li>".$flavors['$item'] ."</li>";
+//
+//            }
+//            echo "</ul>";
+
+            //            if(isset($getFlavor)){
 //                foreach ($getFlavor as $item){
 //                    foreach ($item as $key=>$pair)
 //                    {

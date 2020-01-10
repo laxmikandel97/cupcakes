@@ -14,12 +14,21 @@
 </head>
 <body>
 <div class="container">
+    <img class="img-thumbnail rounded float-right" width="200" height="300" src="cupcake.jpg" alt="cupcake image">
     <?php
     $name = $_POST["name"];
     $getFlavors = $_POST["flavor"];
-
     echo " Thank you, " . $name . ", for your order";
-    echo " Order Summary:";
+    echo " Order Summary:"."<br>";
+    echo "<ul>";
+    $count =0;
+    foreach ($getFlavors as $item)
+    {
+        echo "<li>".$item ."</li>";
+        $count++;
+    }
+    echo "<h5 class='text-info'> Total Order:  $".$count*3.50."</h5>";
+    echo "</ul>";
 
     ?>
 </div>

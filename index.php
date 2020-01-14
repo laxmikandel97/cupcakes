@@ -1,3 +1,8 @@
+<!--Laxmi Kandel
+Full stack IT328
+January 10 2020
+Ask user to input there name and select the cake flavors they want to order when the user input data are valid
+display a thank you note and total order-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,18 +22,20 @@
     <div class="container">
         <h1>Cupcakes Fundraiser</h1>
         <img class="img-thumbnail rounded float-right" width="200" height="300" src="cupcake.jpg" alt="cupcake image">
-
         Your name:<br>
         <div class="row">
-            <input class="col-6" type="text" id="name" name="name" value="<?php if(isset($_POST['name'])){ echo $_POST['name'];} ?>" placeholder="Please input your name!"><br>
+            <input class="col-6" type="text" id="name" name="name" value="<?php if (isset($_POST['name'])) {
+                echo $_POST['name'];
+            } ?>" placeholder="Please input your name!"><br>
             <span class="err" id="err-name">
                         Please enter your  name</span>
         </div>
         <h2> Cupcakes flavors</h2>
-
         <div class="form-group">
             <?php
+            //get the access to the assco array
             include "functions.php";
+            //display the options form the assco array
             foreach ($flavors as $key => $value) {
                 echo " <input class='form-check-inline' type='checkbox' name='flavor[]' value='$key'=>$value  </input>" . "<br>";
             }
@@ -40,8 +47,9 @@
         <button type="submit" name="submit" class="btn btn-success mb-3">Order</button>
     </div>
     <div class="container">
+        <!--        When the user click order button valid the data and display thank you message and total due-->
         <?php
-        if(isset($_POST['submit'])) {
+        if (isset($_POST['submit'])) {
             $name = $_POST["name"];
             $getFlavors = $_POST["flavor"];
             $count = 0;
@@ -60,7 +68,8 @@
                 }
             }
             if (($isvalid)) {
-                echo "<h5 class='text-info'> Total Order:  $" . $count * 3.50 . "</h5>";
+                $total=$count*3.50;
+                echo "<h5 class='text-info'> Total Order:  $" . number_format($total,2) . "</h5>";
                 echo "</ul>";
             }
         }
@@ -79,6 +88,5 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 <script src="cupcake.js"></script>
-
 </body>
 </html>

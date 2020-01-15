@@ -31,6 +31,7 @@ display a thank you note and total order-->
                         Please enter your  name</span>
         </div>
         <h2> Cupcakes flavors</h2>
+        <p> Added some text to check </p>
         <div class="form-group">
             <?php
             //get the access to the assco array
